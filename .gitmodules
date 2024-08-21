@@ -1,4 +1,9 @@
-
 [submodule "apps/obj_ranging/obj_ranging_core"]
 	path = apps/obj_ranging/obj_ranging_core
 	url = ssh://git@code.zzqckj.com:2222/dyxg/obj_ranging.git
+[submodule "common/ICC_common"]
+	path = common/ICC_common
+	url = ssh://git@code.zzqckj.com:2222/dyxg/ICC_common.git
+[submodule "apps/obj_track/obj_track_core"]
+	path = apps/obj_track/obj_track_core
+	url = ssh://git@code.zzqckj.com:2222/dyxg/obj_track_core.git
