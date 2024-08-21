@@ -1,1 +1,4 @@
 
+[submodule "apps/obj_ranging/obj_ranging_core"]
+	path = apps/obj_ranging/obj_ranging_core
+	url = ssh://git@code.zzqckj.com:2222/dyxg/obj_ranging.git
