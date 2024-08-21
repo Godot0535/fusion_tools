@@ -2,7 +2,7 @@
 #include <opencv2/opencv.hpp>
 
 #include "apps/vision/include/config.h"
-#include "common/icc_common/include/percept_obstacle_output_define.h"
+#include "common/ICC_common/include/percept_obstacle_output_define.h"
 #include "common/show/show.h"
 #include "reader/lane_detect/lane_detect_reader.h"
 #include "reader/lane_track/lane_track_reader.h"

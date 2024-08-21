@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 
-#include "../../common/icc_common/include/percept_obstacle_output_define.h"
+#include "../../common/ICC_common/include/percept_obstacle_output_define.h"
 
 namespace reader {
 class ObjTrackReader {
