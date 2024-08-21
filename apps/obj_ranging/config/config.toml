@@ -1,0 +1,16 @@
+[mode]
+obj_track = 0 # 0-全是跟踪结果的文件夹 1-真值场景文件夹
+lane_detect = 0    # 0-全是检测结果的文件夹 1-真值场景文件夹
+
+[path]
+obj_track = "/home/liuyiming/project/fusion-test/data/jinghe_obj_track/L001_S002_N001"
+lane_detect = "/home/liuyiming/workspace/label/jinghe_results_v2.4/L001_S002_N001"
+lane_track = "/home/liuyiming/workspace/label/L001_S002_N001"
+obj_ranging = "/home/liuyiming/project/fusion-test/data/jinghe_obj_ranging/L001_S002_N001"
+
+[show]
+display_switch = 1
+image_mode = 1
+interval = 0
+image_path = "/home/liuyiming/workspace/data/泾河/场景切片真值/L001_S002_N001"
+mobileye_path = "/home/liuyiming/workspace/data/泾河/场景切片真值/L001_S002_N001"

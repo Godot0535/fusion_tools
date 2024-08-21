@@ -1,0 +1,4 @@
+[path]
+directory_mode = 1 # 0-全是检测结果的文件夹 1-真值场景文件夹
+obj_detect = "/home/liuyiming/workspace/label/jinghe_20240724/L001_S016_N004"
+obj_track = "/home/liuyiming/project/fusion-test/data/jinghe_obj_track/L001_S016_N004"

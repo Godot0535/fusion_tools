@@ -1,0 +1,9 @@
+[submodule "common/icc_common"]
+	path = common/icc_common
+	url = git@gitee.com:dechuang-future-automobile/icc_common.git
+[submodule "apps/obj_track/obj_track_core"]
+	path = apps/obj_track/obj_track_core
+	url = git@gitee.com:dechuang-future-automobile/obj_track_core.git
+[submodule "apps/obj_ranging/obj_ranging_core"]
+	path = apps/obj_ranging/obj_ranging_core
+	url = git@gitee.com:dechuang-future-automobile/objranging.git

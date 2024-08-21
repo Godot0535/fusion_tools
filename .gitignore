@@ -1,0 +1,5 @@
+build
+.vscode
+data
+.VSCodeCounter
+__pycache__

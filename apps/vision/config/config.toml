@@ -1,0 +1,31 @@
+[display]
+switch = 1      # 0-不播放 1-播放
+undistort = 0   # 图片是否进行畸变矫正
+obj_detect = 1  # 目标检测
+obj_track = 1   # 目标跟踪
+lane_detect = 1 # 车道线检测
+lane_track = 1  # 车道线跟踪
+obj_ranging = 1 # 测距测速
+radar = 0       # 毫米波雷达
+fusion = 0      # 融合
+mobileye = 1    # mobileye
+interval = 0    # 播放间隔
+
+[path]
+directory_mode = 1  # 0-全是图片的文件夹 1-真值场景文件夹
+image = "/home/liuyiming/workspace/data/泾河/场景切片真值/L001_S016_N004"
+obj_detect = "/home/liuyiming/workspace/label/jinghe_20240724/L001_S016_N004"
+obj_track = "/home/liuyiming/project/fusion-test/data/jinghe_obj_track/L001_S016_N004"
+lane_detect = "/home/liuyiming/workspace/label/jinghe_results_v2.4/L001_S016_N004"
+lane_track = "/home/liuyiming/workspace/label/jinghe_lane_track_0725/L001_S016_N004"
+obj_ranging = "/home/liuyiming/project/fusion-test/data/jinghe_obj_ranging/L001_S016_N004"
+radar = ""
+fusion = ""
+mobileye = "/home/liuyiming/workspace/data/泾河/场景切片真值/L001_S016_N004"
+
+[save]
+image_save = 0       # 是否保存图片结果
+video_save = 1       # 是否保存视频结果
+video_fps = 20.0     # 保存的视频帧率
+image_save_path = ""
+video_save_path = "/home/liuyiming/project/fusion-test/data/video/jinghe/L001_S008_N001_25D.avi"
