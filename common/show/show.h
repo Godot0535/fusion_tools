@@ -1,8 +1,8 @@
 #pragma once
 #include <opencv2/opencv.hpp>
 
-#include "common/ICC_common/include/percept_lane_output_define.h"
-#include "common/ICC_common/include/percept_obstacle_output_define.h"
+// #include "common/ICC_common/include/percept_lane_output_define.h"
+#include "common/ICC_common/include/self_dev_vision_input_define.h"
 #include "common/mobileye_types.h"
 #include "common/show/convas.h"
 

@@ -3,3 +3,5 @@ build
 data
 .VSCodeCounter
 __pycache__
+.cache
+.fleet

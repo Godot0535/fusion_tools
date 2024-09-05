@@ -53,6 +53,7 @@ ObjRanging::ObjRanging() {
 }
 
 bool ObjRanging::Run() {
+  std::cout << std::endl;
   TRACK_OBJS track_objs = obj_track_reader_.GetData(frame_id_);
   const DETECT_LANES &detect_lanes = lane_detect_reader_.GetData(frame_id_);
   const TRACK_LANES &track_lanes = lane_track_reader_.GetData(frame_id_);
@@ -111,7 +112,7 @@ bool ObjRanging::Run() {
 
   std::vector<mr::TrackedObject> objs;
   for (size_t i = 0; i < track_objs.objs_num; i++) {
-    // if (track_objs.track_objs[i].track_id != 6) continue;
+    // if (track_objs.track_objs[i].track_id != 1) continue;
     mr::TrackedObject obj;
     const TRACK_OBJ_INFO &track_obj = track_objs.track_objs[i];
     obj.track_id = track_obj.track_id;
