@@ -5,10 +5,10 @@ import utils
 
 if __name__ == "__main__":
     dataset = "/home/liuyiming/workspace/data/泾河/场景切片真值"
-    obj_labels = "/home/liuyiming/workspace/label/jinghe_20240724"
-    results = "/home/liuyiming/project/fusion-test/data/jinghe_obj_track"
+    obj_labels = "/home/liuyiming/workspace/label/jinghe_20240902"
+    results = "/home/liuyiming/project/fusion_tools/data/jinghe_obj_track"
     config_path = (
-        "/home/liuyiming/project/fusion-test/apps/obj_track/config/config.toml"
+        "/home/liuyiming/project/fusion_tools/apps/obj_track/config/config.toml"
     )
 
     # 重置输出目录
@@ -37,5 +37,5 @@ if __name__ == "__main__":
         
         os.mkdir(results + "/" + scene_names[i])
         
-        os.system("cd /home/liuyiming/project/fusion-test/apps/obj_track/build && ./obj_track_app")
+        os.system("cd /home/liuyiming/project/fusion_tools/apps/obj_track/build && ./obj_track_app")
         
