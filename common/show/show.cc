@@ -8,7 +8,8 @@ void Show::Reset(cv::Mat& image) {
 }
 
 const cv::Mat& Show::Display() {
-  cv::hconcat(image_, canvas_.Image(), display_);
+  // cv::hconcat(image_, canvas_.Image(), display_);
+  display_ = image_;
   return display_;
 }
 

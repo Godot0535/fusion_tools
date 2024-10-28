@@ -9,6 +9,7 @@ namespace obj_track {
 ObjTrack::ObjTrack() {
   config_.ReadConfig("../config/config.toml");
   obj_detect_reader_.ReadData(config_.obj_detect_path);
+  infrared_GT_reader_.ReadData(config_.obj_detect_path);
 }
 
 bool ObjTrack::Run() {
@@ -53,7 +54,8 @@ bool ObjTrack::Run() {
   std::ofstream file(file_path, std::ios::out | std::ios::trunc);
   for (auto &track : tracks) {
     auto det = map.find(track.det_index_);
-    std::cout << "det id: " << track.det_index_ << " track id: " << track.track_id_ << std::endl;
+    std::cout << "det id: " << track.det_index_
+              << " track id: " << track.track_id_ << std::endl;
     file << track.track_id_ << " " << track.tlwh[0] << " " << track.tlwh[1]
          << " " << (track.tlwh[0] + track.tlwh[2]) << " "
          << (track.tlwh[1] + track.tlwh[3]) << " " << track.conf_ << " "
@@ -83,6 +85,43 @@ bool ObjTrack::Run() {
   // std::cout << frame_id_ << std::endl;
   if (obj_detect_reader_.IsValid(++frame_id_)) return true;
 
+  return false;
+}
+
+bool ObjTrack::InfraredRun() {
+  const DETECT_OBJS &objs = infrared_GT_reader_.GetData(frame_id_);
+  std::vector<Obj> detect_objs;
+
+  for (size_t i = 0; i < objs.objs_num; i++) {
+    Obj detect_obj;
+    detect_obj.label = static_cast<int>(objs.detect_objs[i].obj_category);
+    detect_obj.prob = 0.99;
+    detect_obj.rect = cv::Rect_<float>(objs.detect_objs[i].box.left_top_u,
+                                       objs.detect_objs[i].box.left_top_v,
+                                       objs.detect_objs[i].box.right_bottom_u -
+                                           objs.detect_objs[i].box.left_top_u,
+                                       objs.detect_objs[i].box.right_bottom_v -
+                                           objs.detect_objs[i].box.left_top_v);
+    detect_objs.push_back(detect_obj);
+  }
+
+  std::vector<STrack> &&tracks = tracker_.Update(detect_objs);
+
+  std::string file_path =
+      config_.obj_track_path + "/" + IndexString(frame_id_) + ".txt";
+  std::ofstream file(file_path, std::ios::out | std::ios::trunc);
+
+  for (auto &track : tracks) {
+    file << track.track_id_ << " " << track._tlwh[0] << " " << track._tlwh[1]
+         << " " << (track._tlwh[0] + track._tlwh[2]) << " "
+         << (track._tlwh[1] + track._tlwh[3]) << " " << track.conf_ << " "
+         << (int)track.label_ << " " << track._tlwh[0] << " " << track._tlwh[1]
+         << " " << track._tlwh[0] + track._tlwh[2] << " "
+         << track._tlwh[1] + track._tlwh[3] << " " << track.score_ << " " << 0
+         << " " << 0 << " " << 0 << " " << 0 << " " << 0.0 << std::endl;
+  }
+  file.close();
+  if (obj_detect_reader_.IsValid(++frame_id_)) return true;
   return false;
 }
 
