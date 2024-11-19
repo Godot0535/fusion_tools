@@ -24,8 +24,8 @@ bool InfraredDetectReader::ReadData(std::string path) {
       std::istringstream data_stream(data_line);  // 每一行的数据流
       std::string unuse;
       int category, left, right, top, bottom = 0;
-      data_stream >> unuse >> category >> left >> top >> right >> bottom; /*>>
-          objs.detect_objs[objs.objs_num].confidence*/
+      data_stream >> unuse >> category >> left >> top >> right >> bottom >>
+          objs.detect_objs[objs.objs_num].confidence;
       objs.detect_objs[objs.objs_num].obj_category =
           static_cast<OBJ_CATEGORY>(category);
       objs.detect_objs[objs.objs_num].box.left_top_u =
@@ -36,7 +36,7 @@ bool InfraredDetectReader::ReadData(std::string path) {
           static_cast<uint16_t>(right);
       objs.detect_objs[objs.objs_num].box.right_bottom_v =
           static_cast<uint16_t>(bottom);
-      objs.detect_objs[objs.objs_num].confidence = 0.99;
+      // objs.detect_objs[objs.objs_num].confidence = 0.99;
       objs.objs_num++;
     }
     data.push_back(objs);

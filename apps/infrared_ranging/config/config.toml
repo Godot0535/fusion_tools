@@ -1,0 +1,12 @@
+[mode]
+infrared_track = 0 # 0-全是跟踪结果的文件夹
+
+[path]
+infrared_track = "/home/liuyiming/project/fusion_tools/data/infrared/demo2"
+infrared_ranging = "/home/liuyiming/project/fusion_tools/data/infrared_ranging/demo2"
+
+[show]
+display_switch = 1
+image_mode = 0
+interval = 0
+image_path = "/home/liuyiming/workspace/data/红外/images/demo_2_frames_infrared_20241023"

@@ -1,4 +1,4 @@
 [path]
 directory_mode = 0 # 0-全是检测结果的文件夹 1-真值场景文件夹
-infrared_detect = "/home/liuyiming/workspace/data/红外/labels/demo_1_frames_infrared_20241023"
-infrared_track = "/home/liuyiming/project/fusion_tools/data/infrared/demo1"
+infrared_detect = "/home/liuyiming/workspace/data/红外/跟踪+测距数据段_20241030/labels/demo_1_1_new"
+infrared_track = "/home/liuyiming/project/fusion_tools/data/infrared/demo_1_1_new"

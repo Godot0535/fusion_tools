@@ -1,18 +1,16 @@
-#include "obj_track.h"
-
 #include <fstream>
 #include <sstream>
 
 #include "../../common/utils.h"
+#include "infrared_track_reader.h"
 
 namespace reader {
-bool ObjTrackReader::ReadData(std::string path) {
+bool InfraredTrackReader::ReadData(std::string path) {
   data.clear();
   std::vector<std::string> files;
   GetFileNames(path, files);
   for (auto& file : files) {
-    std::cout << "----------------------" << std::endl;
-    std::cout << file << std::endl;
+    // std::cout << "----------------------" << std::endl;
     std::ifstream data_in(file, std::ios::binary);
     if (!data_in.is_open()) {
       return false;
@@ -62,23 +60,17 @@ bool ObjTrackReader::ReadData(std::string path) {
       objs.track_objs[objs.objs_num].obj_info.sub_box.right_bottom_v =
           static_cast<uint16_t>(sub_bottom);
 
-    //   std::cout << objs.track_objs[objs.objs_num].track_id << " "
-    //             << objs.track_objs[objs.objs_num].box.left_top_u << " "
-    //             << objs.track_objs[objs.objs_num].box.left_top_v << " "
-    //             << objs.track_objs[objs.objs_num].box.right_bottom_u << " "
-    //             << objs.track_objs[objs.objs_num].box.right_bottom_v
-    //             << std::endl;
+      // std::cout << objs.track_objs[objs.objs_num].track_id << " "
+      //           << objs.track_objs[objs.objs_num].box.left_top_u << " "
+      //           << objs.track_objs[objs.objs_num].box.left_top_v << " "
+      //           << objs.track_objs[objs.objs_num].box.right_bottom_u << " "
+      //           << objs.track_objs[objs.objs_num].box.right_bottom_v
+      //           << std::endl;
       objs.objs_num++;
     }
     data.push_back(objs);
   }
   return true;
 }
-
-const TRACK_OBJS& ObjTrackReader::GetData(int frame_id) const {
-  return data.at(frame_id);
 }
-
-TRACK_OBJS ObjTrackReader::GetData(int frame_id) { return data.at(frame_id); }
-
 }  // namespace reader
